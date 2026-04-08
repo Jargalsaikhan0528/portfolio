@@ -3,12 +3,8 @@ title: ""
 ---
 
 ::: {.profile}
-![](tseej zurag.jpg){.profile-photo}
-
-::: {.profile-text}
 # Jargalsaikhan Gansuld
 Data Science & Economics · CEU Vienna
-:::
 :::
 
 ::: {.intro}

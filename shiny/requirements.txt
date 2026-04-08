@@ -3,3 +3,4 @@ shinyswatch
 pandas
 numpy
 plotly
+statsmodels

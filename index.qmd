@@ -19,7 +19,7 @@ My passion lies at the intersection of data science, economics, and finance — 
 ::: {.project-info}
 **US County Election Outcomes**
 
-Analyzed how socioeconomic factors like GDP, education, and race influence U.S. election outcomes at the county level. Built predictive models using XGBoost and logistic regression.
+This project investigates the impact of social and economic factors on U.S. election outcomes at the county level through a data-driven approach. Utilizing county-level demographic, economic, and election data, we conducted correlation analysis to identify the most influential variables affecting voting patterns. Key factors such as GDP, population changes, and social indicators were found to significantly correlate with election outcomes. Three predictive models were developed, achieving an accuracy of 0.924, which demonstrates its effectiveness in forecasting election results. The findings provide insights into the relationship between economic conditions and voting behavior, contributing to the broader understanding of electoral dynamics in the United States. Future improvements to this model could involve incorporating additional economic variables and factors such as political marketing, media influence, and campaign spending to further enhance predictive accuracy and fully capture the complexities of election results.
 :::
 ::: {.project-link}
 [Explore more ↗](https://019d6ceb-70a7-6a50-5dfc-d4adb3436442.share.connect.posit.cloud){target="_blank"}

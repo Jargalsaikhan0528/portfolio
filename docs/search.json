@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a Data Science and Economics student at Central European University (CEU) in Vienna, where I blend rigorous quantitative methods with economic theory to explore real-world problems.\nMy passion lies at the intersection of data science, economics, and finance — using tools like machine learning, data analysis, sentiment analysis, correlation studies, and exploratory data analysis (EDA) to uncover patterns in markets, consumer behavior, and economic trends. With hands-on experience from coursework and projects, I’ve built models to predict financial indicators, analyzed sentiment in economic news for investment insights, and conducted EDA on large datasets to reveal correlations between macroeconomic variables and asset prices."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a Data Science and Economics student at Central European University (CEU) in Vienna, where I blend rigorous quantitative methods with economic theory to explore real-world problems.\nMy passion lies at the intersection of data science, economics, and finance — using tools like machine learning, data analysis, sentiment analysis, correlation studies, and exploratory data analysis (EDA) to uncover patterns in markets, consumer behavior, and economic trends. With hands-on experience from coursework and projects, I’ve built models to predict financial indicators, analyzed sentiment in economic news for investment insights, and conducted EDA on large datasets to reveal correlations between macroeconomic variables and asset prices."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\nBA/BSc Data Science and Society\nCentral European University · Vienna · September 2023 – June 2026"
+  },
+  {
+    "objectID": "about.html#publication",
+    "href": "about.html#publication",
+    "title": "About Me",
+    "section": "Publication",
+    "text": "Publication\nDorjnyambuu, B., Zorigtbaatar, M., Daashinkhuu, G., & Gansuld, J. “From Data to Insight: Design, Data Structure, and Analytical Potential of the Mongolian Household Socio-Economic Survey” Regional Statistics (under review) — Contributed to data cleaning, merging, and exploratory data analysis."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About Me",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nProgramming Languages & Libraries\nPython (Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn, XGBoost, Statsmodels), SQL\nSkills\nMachine Learning · Statistical Analysis · Data Visualization · Exploratory Data Analysis · Feature Engineering · Hyperparameter Tuning\nCertifications & Training\nIBM: Python for Data Science, AI & Development"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\n\nLinkedIn\nGitHub"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Explore my data science projects interactively below."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jargalsaikhan Gansuld",
+    "section": "",
+    "text": "I’m Jargalsaikhan Gansuld, a Data Science and Economics student at Central European University in Vienna. I have a strong passion for data science, economics, and finance, and I’m eager to apply my skills in these fields. I have experience in data analysis, machine learning, and statistical modeling, and I’m always looking for new opportunities to learn and grow as a data scientist.\n\n\nProjects\n\n\nUS County Election Outcomes\n2024 — CEU Data Science Project\nAnalyzed how socioeconomic factors like GDP, education, and race influence U.S. election outcomes at the county level. Built predictive models using XGBoost and logistic regression.\n\n\nExplore more ↗\n\n\n\n\nProject 2\nComing soon\n\n\n\n\nProject 3\nComing soon"
+  }
+]

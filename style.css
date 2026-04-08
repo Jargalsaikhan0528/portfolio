@@ -6,32 +6,43 @@
   box-sizing: border-box;
 }
 
-/* Force beige background everywhere */
-body, .quarto-container, #quarto-content, .page-layout-article {
+/* ── Nuclear override for flatly theme ── */
+html {
   background-color: #f5f0e8 !important;
 }
 
 body {
+  background-color: #f5f0e8 !important;
   font-family: 'Inter', sans-serif;
-  background-color: #f5f0e8;
   color: #1a1a1a;
   font-size: 1rem;
   line-height: 1.7;
 }
 
-/* ── Navigation ── */
-.navbar, nav.navbar {
+#quarto-content, .quarto-container,
+.page-layout-article, .page-columns,
+.column-page, .column-body {
   background-color: #f5f0e8 !important;
+}
+
+/* ── Navigation ── */
+.navbar, .navbar-default, nav.navbar {
+  background-color: #f5f0e8 !important;
+  background-image: none !important;
+  border: none !important;
   border-bottom: 1px solid #e0d8c8 !important;
+  box-shadow: none !important;
   padding: 1rem 2rem;
 }
 
-.navbar-brand {
-  font-weight: 600;
+.navbar-brand, .navbar-brand:hover,
+.navbar-brand:focus {
   color: #1a1a1a !important;
+  font-weight: 600;
   font-size: 1rem;
 }
 
+.navbar-nav > li > a,
 .navbar .nav-link {
   color: #1a1a1a !important;
   font-size: 0.9rem;
@@ -40,16 +51,18 @@ body {
   transition: color 0.2s;
 }
 
+.navbar-nav > li > a:hover,
 .navbar .nav-link:hover {
   color: #555 !important;
+  background-color: transparent !important;
 }
 
 /* ── Main content area ── */
-.page-layout-full main,
 #quarto-content main {
   max-width: 720px;
   margin: 0 auto;
   padding: 4rem 2rem;
+  background-color: #f5f0e8 !important;
 }
 
 /* ── Intro section ── */
@@ -68,30 +81,6 @@ body {
   color: #1a1a1a;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/* ── Section tabs ── */
-.section-tabs {
-  display: flex;
-  gap: 1.5rem;
-  border-bottom: 1px solid #ddd4c0;
-  margin-bottom: 2rem;
-}
-
-.section-tabs a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #999;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-}
-
-.section-tabs a.active,
-.section-tabs a:hover {
-  color: #1a1a1a;
-  border-bottom: 2px solid #1a1a1a;
 }
 
 /* ── Project cards ── */
@@ -142,12 +131,43 @@ body {
   color: #f5f0e8;
 }
 
-/* ── Page titles (About etc) ── */
+/* ── Page titles ── */
 h1.title {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 2rem;
   color: #1a1a1a;
+}
+
+/* ── Headings ── */
+h2, h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e0d8c8;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Links ── */
+a {
+  color: #1a1a1a;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #555;
 }
 
 /* ── Shiny Container ── */

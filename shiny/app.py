@@ -322,7 +322,7 @@ def server(input, output, session):
 
     # Render each view's plot
     for _view in election.views:
-        (lambda view: _make_renderer(view, output, input))(\_view)
+        (lambda view: _make_renderer(view, output, input))(_view)
 
 
 def _make_renderer(view, output, input):

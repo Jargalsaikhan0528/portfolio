@@ -2,37 +2,46 @@
 title: ""
 ---
 
-::: {.hero}
-### Data Science and Economics student at CEU. 
+::: {.intro}
+I'm Jargalsaikhan, a Data Science and Society student at Central European University in Vienna.
 
-I turn raw data into meaningful insights.  
-Explore my projects below to see what I've been building.
+I work with data to uncover patterns, build models, and communicate findings clearly.
 
-[View Projects](projects.qmd){.btn .btn-primary}
-[About Me](about.qmd){.btn .btn-outline}
+I'm interested in the intersection of social science and machine learning.
 :::
 
----
-
-::: {.skills-section}
-## What I Work With
-
-:::: {.columns}
-
-::: {.column width="33%"}
-**Languages**  
-Python · R · SQL
+::: {.section-tabs}
+[Projects](#projects){.active}
+[About](about.qmd)
 :::
 
-::: {.column width="33%"}
-**Libraries**  
-Pandas · NumPy · Scikit-learn · Plotly
+### Projects {#projects}
+
+::: {.project-card}
+::: {.project-info}
+**US County Election Outcomes**
+
+2024 — CEU Data Science Project
+
+Analyzed how socioeconomic factors like GDP, education, and race influence U.S. election outcomes at the county level. Built predictive models using XGBoost and logistic regression.
+:::
+::: {.project-link}
+[Open App ↗](projects.qmd)
+:::
 :::
 
-::: {.column width="33%"}
-**Tools**  
-GitHub · VS Code · Quarto · Shiny
+::: {.project-card}
+::: {.project-info}
+**Project 2**
+
+Coming soon
+:::
 :::
 
-::::
+::: {.project-card}
+::: {.project-info}
+**Project 3**
+
+Coming soon
+:::
 :::

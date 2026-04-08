@@ -15,6 +15,6 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: none
     css: styles.css
     toc: false

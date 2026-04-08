@@ -39,7 +39,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Explore my data science projects interactively. Click the button below to open the live app.\n\n🚀 Open Interactive Projects App\n\n\nNote: The interactive app is powered by Python Shiny hosted on Posit Connect Cloud."
+    "text": "Explore my data science projects interactively below."
   },
   {
     "objectID": "index.html",

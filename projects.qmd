@@ -2,10 +2,12 @@
 title: "Projects"
 ---
 
-Explore my data science projects interactively. Click the button below to open the live app.
+Explore my data science projects interactively below.
 
-::: {.shiny-container}
-[🚀 Open Interactive Projects App](https://019d6ceb-70a7-6a50-5dfc-d4adb3436442.share.connect.posit.cloud){.btn .btn-primary target="_blank"}
-:::
-
-> **Note:** The interactive app is powered by Python Shiny hosted on Posit Connect Cloud.
+<iframe 
+  src="https://019d6ceb-70a7-6a50-5dfc-d4adb3436442.share.connect.posit.cloud"
+  width="100%" 
+  height="800px" 
+  frameborder="0"
+  allow="fullscreen">
+</iframe>

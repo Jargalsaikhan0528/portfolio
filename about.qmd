@@ -2,22 +2,33 @@
 title: "About Me"
 ---
 
-## Who I Am
+## Background
 
-I'm a Data Science and Society student at Central European University (CEU) in Vienna.  
-I'm passionate about using data to understand the world and communicate findings clearly.
+I'm a Data Science and Economics student at Central European University (CEU) in Vienna, where I blend rigorous quantitative methods with economic theory to explore real-world problems.
+
+My passion lies at the intersection of data science, economics, and finance — using tools like machine learning, data analysis, sentiment analysis, correlation studies, and exploratory data analysis (EDA) to uncover patterns in markets, consumer behavior, and economic trends. With hands-on experience from coursework and projects, I've built models to predict financial indicators, analyzed sentiment in economic news for investment insights, and conducted EDA on large datasets to reveal correlations between macroeconomic variables and asset prices.
 
 ## Education
 
 **BA/BSc Data Science and Society**  
-Central European University · Vienna · 2024–present
+Central European University · Vienna · September 2023 – June 2026
 
-## Interests
+## Publication
 
-- Data visualization
-- Machine learning
-- Social impact through data
+Dorjnyambuu, B., Zorigtbaatar, M., Daashinkhuu, G., & Gansuld, J. "From Data to Insight: Design, Data Structure, and Analytical Potential of the Mongolian Household Socio-Economic Survey" *Regional Statistics* (under review) — Contributed to data cleaning, merging, and exploratory data analysis.
+
+## Technical Skills
+
+**Programming Languages & Libraries**  
+Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn, XGBoost, Statsmodels), SQL
+
+**Skills**  
+Machine Learning · Statistical Analysis · Data Visualization · Exploratory Data Analysis · Feature Engineering · Hyperparameter Tuning
+
+**Certifications & Training**  
+IBM: Python for Data Science, AI & Development
 
 ## Contact
 
-Feel free to reach out via [GitHub](https://github.com/jargalsaikhan0528).
+- [LinkedIn](https://www.linkedin.com/in/jargalsaikhan-gansuld-888269302/)
+- [GitHub](https://github.com/Jargalsaikhan0528)

@@ -1,0 +1,65 @@
+/* ── Portfolio Styles ── */
+
+body {
+  font-family: 'Georgia', serif;
+}
+
+.hero {
+  padding: 4rem 0 3rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero h3 {
+  color: #6c757d;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0.3rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #2c7be5;
+  color: white;
+  border: 2px solid #2c7be5;
+}
+
+.btn-primary:hover {
+  background: #1a6acf;
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #2c7be5;
+  border: 2px solid #2c7be5;
+}
+
+.btn-outline:hover {
+  background: #2c7be5;
+  color: white;
+}
+
+.skills-section {
+  padding: 2rem 0;
+}
+
+.shiny-container {
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}

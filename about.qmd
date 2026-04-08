@@ -1,0 +1,23 @@
+---
+title: "About Me"
+---
+
+## Who I Am
+
+I'm a Data Science and Society student at Central European University (CEU) in Vienna.  
+I'm passionate about using data to understand the world and communicate findings clearly.
+
+## Education
+
+**BA/BSc Data Science and Society**  
+Central European University · Vienna · 2024–present
+
+## Interests
+
+- Data visualization
+- Machine learning
+- Social impact through data
+
+## Contact
+
+Feel free to reach out via [GitHub](https://github.com/jargalsaikhan0528).

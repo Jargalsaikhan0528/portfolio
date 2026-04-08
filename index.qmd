@@ -1,0 +1,38 @@
+---
+title: ""
+---
+
+::: {.hero}
+### Data Science and Economics student at CEU. 
+
+I turn raw data into meaningful insights.  
+Explore my projects below to see what I've been building.
+
+[View Projects](projects.qmd){.btn .btn-primary}
+[About Me](about.qmd){.btn .btn-outline}
+:::
+
+---
+
+::: {.skills-section}
+## What I Work With
+
+:::: {.columns}
+
+::: {.column width="33%"}
+**Languages**  
+Python · R · SQL
+:::
+
+::: {.column width="33%"}
+**Libraries**  
+Pandas · NumPy · Scikit-learn · Plotly
+:::
+
+::: {.column width="33%"}
+**Tools**  
+GitHub · VS Code · Quarto · Shiny
+:::
+
+::::
+:::

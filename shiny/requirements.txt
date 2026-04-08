@@ -1,0 +1,11 @@
+shiny 
+shinywatch 
+pandas 
+numpy
+plotly 
+matplotlib
+scipy
+seaborn
+scikit-learn
+statsmodels
+requests

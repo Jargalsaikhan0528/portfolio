@@ -65,6 +65,26 @@ body {
   background-color: #f5f0e8 !important;
 }
 
+/* ── Profile Photo ── */
+.profile {
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.profile h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
 /* ── Intro section ── */
 .intro {
   margin-bottom: 4rem;

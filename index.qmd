@@ -2,6 +2,12 @@
 title: ""
 ---
 
+::: {.profile}
+![](tseej zurag.jpg){.profile-photo}
+
+# Jargalsaikhan Gansuld
+:::
+
 ::: {.intro}
 I'm a Data Science and Economics student at Central European University (CEU) in Vienna, where I blend rigorous quantitative methods with economic theory to explore real-world problems.
 
@@ -13,8 +19,6 @@ My passion lies at the intersection of data science, economics, and finance — 
 ::: {.project-card}
 ::: {.project-info}
 **US County Election Outcomes**
-
-2024 — CEU Data Science Project
 
 Analyzed how socioeconomic factors like GDP, education, and race influence U.S. election outcomes at the county level. Built predictive models using XGBoost and logistic regression.
 :::

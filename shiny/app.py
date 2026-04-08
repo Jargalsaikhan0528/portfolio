@@ -43,7 +43,7 @@ class DataLoader:
 
 
 class View:
-    """Base class for all visualization views."""
+    """This class is the base class for all views. Each view should inherit from this and implement the render method."""
     title: str = ""
     description: str = ""
 
@@ -174,7 +174,7 @@ class CorrelationView(View):
 
 
 class TimeTrendView(View):
-    """Vote share trends over election years."""
+    """Time trend of average Republican and Democrat vote shares across counties."""
     title = "Vote Share Over Time"
     description = "How did Republican and Democrat vote shares shift across U.S. counties over election years?"
 
@@ -205,8 +205,7 @@ class TimeTrendView(View):
 
 class ElectionProject:
     """
-    Manages all views for the US County Election Outcomes project.
-    To add a new visualization: create a new View subclass and append it.
+    This class represents the "US County Election Outcomes" project, which includes multiple views analyzing the relationship between socioeconomic factors and election results at the county level. Each view is a separate class that handles its own rendering logic, allowing for modularity and easy maintenance.
     """
 
     def __init__(self):
@@ -233,7 +232,7 @@ class PlaceholderProject:
 
 
 class Portfolio:
-    """Manages all projects. Add new projects here."""
+    """This class will manage multiple projects. To add a new project, create a new class and add it here"""
 
     def __init__(self):
         self._projects = []
@@ -251,7 +250,7 @@ class Portfolio:
         return self._projects[0]
 
 
-# ── Populate ───────────────────────────────────────────────
+# populate portfolio with projects (will add more projects later)
 
 portfolio = Portfolio()
 election = ElectionProject()
@@ -260,7 +259,7 @@ portfolio.add_project(PlaceholderProject("Project 2", "Coming soon."))
 portfolio.add_project(PlaceholderProject("Project 3", "Coming soon."))
 
 
-# ── UI ─────────────────────────────────────────────────────
+# UI 
 
 app_ui = ui.page_fluid(
     ui.tags.style("""
@@ -292,7 +291,7 @@ app_ui = ui.page_fluid(
 )
 
 
-# ── Server ─────────────────────────────────────────────────
+# server function: reactive logic and rendering
 
 def server(input, output, session):
 

@@ -171,7 +171,6 @@ portfolio.add_project(PlaceholderProject(
 # ── Shiny UI ────────────────────────────────────────────────
 
 app_ui = ui.page_fluid(
-    shinyswatch.theme.flatly(),
     ui.h2("📊 My Data Science Projects"),
     ui.hr(),
     ui.layout_sidebar(
@@ -190,7 +189,8 @@ app_ui = ui.page_fluid(
         ui.card(
             ui.output_ui("project_plot")
         )
-    )
+    ),
+    theme=shinyswatch.theme.flatly()
 )
 
 

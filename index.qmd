@@ -7,10 +7,6 @@ title: ""
 I'm Jargalsaikhan Gansuld, a Data Science and Economics student at Central European University in Vienna. I have a strong passion for data science, economics, and finance, and I'm eager to apply my skills in these fields. I have experience in data analysis, machine learning, and statistical modeling, and I'm always looking for new opportunities to learn and grow as a data scientist.
 :::
 
-::: {.section-tabs}
-[Projects](#projects){.active} &nbsp;&nbsp;&nbsp; [About](about.qmd)
-:::
-
 ### Projects {#projects}
 
 ::: {.project-card}

@@ -67,21 +67,29 @@ body {
 
 /* ── Profile Photo ── */
 .profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .profile-photo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
-.profile h1 {
-  font-size: 1.3rem;
+.profile-text h1 {
+  font-size: 1.4rem;
   font-weight: 600;
+  margin: 0 0 0.3rem 0;
+}
+
+.profile-text p {
+  font-size: 0.9rem;
+  color: #888;
   margin: 0;
 }
 

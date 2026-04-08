@@ -1,21 +1,20 @@
-project: 
+project:
   type: website
-  output-dir: docs 
+  output-dir: docs
 
-website: 
+website:
   title: "Jargalsaikhan Gansuld's Portfolio"
-  description: "A showcase of my projects and achievements"
-  navbar: 
-    left: 
-      -href: index.qmd
-      text: Home
-      -href: projects.qmd
-      text: Projects
-      -href: about.qmd
-      text: About
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: about.qmd
+        text: About
 
-format: 
+format:
   html:
-    theme: cosmo 
+    theme: cosmo
     css: styles.css
-    toc: false 
+    toc: false

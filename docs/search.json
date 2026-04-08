@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a Data Science and Society student at Central European University (CEU) in Vienna.\nI’m passionate about using data to understand the world and communicate findings clearly."
+  },
+  {
+    "objectID": "about.html#who-i-am",
+    "href": "about.html#who-i-am",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a Data Science and Society student at Central European University (CEU) in Vienna.\nI’m passionate about using data to understand the world and communicate findings clearly."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\nBA/BSc Data Science and Society\nCentral European University · Vienna · 2024–present"
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About Me",
+    "section": "Interests",
+    "text": "Interests\n\nData visualization\nMachine learning\nSocial impact through data"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\nFeel free to reach out via GitHub."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Explore my data science projects interactively. Select a project from the app below to see the analysis and visualizations in detail.\n\n\n\n\n\nNote: The interactive app above is powered by Python Shiny hosted on Posit Connect Cloud."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Jargalsaikhan Gansuld's Portfolio",
+    "section": "",
+    "text": "I turn raw data into meaningful insights.\nExplore my projects below to see what I’ve been building.\nView Projects About Me"
+  },
+  {
+    "objectID": "index.html#what-i-work-with",
+    "href": "index.html#what-i-work-with",
+    "title": "Jargalsaikhan Gansuld's Portfolio",
+    "section": "What I Work With",
+    "text": "What I Work With\n\n\nLanguages\nPython · R · SQL\n\nLibraries\nPandas · NumPy · Scikit-learn · Plotly\n\nTools\nGitHub · VS Code · Quarto · Shiny"
+  }
+]

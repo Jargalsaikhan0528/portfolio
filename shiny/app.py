@@ -1,9 +1,8 @@
 """
 Portfolio Shiny App - US County Election Outcomes
 --------------------------------------------------
-OOP-based structure: each visualization is a separate class
-with its own data processing and rendering logic.
-The ElectionProject class manages all views via a Portfolio.
+OOP-based structure: each visualization is a separate class.
+All views are displayed at once on a single scrollable page.
 """
 
 import pandas as pd
@@ -17,11 +16,7 @@ import plotly.io as pio
 # ── OOP Layer ──────────────────────────────────────────────
 
 class DataLoader:
-    """
-    Responsible for loading and caching the dataset.
-    Single responsibility: data access only.
-    """
-    _instance = None
+    """Loads and caches the dataset. Single responsibility: data access."""
     _data = None
 
     @classmethod
@@ -36,10 +31,7 @@ class DataLoader:
 
 
 class View:
-    """
-    Base class for all visualization views.
-    Each subclass represents one tab/chart in the app.
-    """
+    """Base class for all visualization views."""
     title: str = ""
     description: str = ""
 
@@ -51,10 +43,8 @@ class View:
 
 
 class OverviewView(View):
-    """
-    Shows Republican vs Democrat county winners on a choropleth map.
-    """
-    title = "🗺️ County Overview"
+    """Choropleth map of Republican vs Democrat county winners."""
+    title = "County Overview"
     description = "Which party won each U.S. county? Select an election year to explore."
 
     def get_controls(self) -> list:
@@ -90,60 +80,11 @@ class OverviewView(View):
         return pio.to_html(fig, full_html=False)
 
 
-class CorrelationView(View):
-    """
-    Shows how a selected socioeconomic factor correlates with Republican vote share.
-    """
-    title = "📊 Factor vs Vote Share"
-    description = "Explore how a socioeconomic factor correlates with Republican vote share across counties."
-
-    INTERESTING_VARS = {
-        "inctot": "Total Income",
-        "avrg_age": "Average Age",
-        "mortamt1": "Mortgage Payment",
-        "ftotinc": "Family Income",
-        "GDP": "GDP per County",
-    }
-
-    def get_controls(self) -> list:
-        df = DataLoader.get_data()
-        available = {k: v for k, v in self.INTERESTING_VARS.items() if k in df.columns}
-        return [
-            ui.input_select(
-                id="corr_var",
-                label="Socioeconomic Factor",
-                choices=available,
-                selected=list(available.keys())[0]
-            )
-        ]
-
-    def render(self, corr_var=None, **kwargs) -> str:
-        df = DataLoader.get_data()
-        if corr_var is None or corr_var not in df.columns:
-            corr_var = "inctot"
-        df = df.dropna(subset=[corr_var, "rep_votes_pct"])
-        label = self.INTERESTING_VARS.get(corr_var, corr_var)
-        fig = px.scatter(
-            df, x=corr_var, y="rep_votes_pct",
-            opacity=0.3,
-            trendline="ols",
-            labels={corr_var: label, "rep_votes_pct": "Republican Vote Share (%)"},
-            title=f"{label} vs Republican Vote Share by County",
-            color_discrete_sequence=["#E63946"],
-            template="plotly_white"
-        )
-        return pio.to_html(fig, full_html=False)
-
-
 class FeatureImportanceView(View):
-    """
-    Shows the key socioeconomic predictors of election outcomes
-    based on findings from the XGBoost model (92.4% accuracy).
-    """
-    title = "🔑 Key Predictors"
+    """Key predictors from the XGBoost model."""
+    title = "Key Predictors"
     description = "Based on the XGBoost model (92.4% accuracy), these socioeconomic factors were most predictive of county election outcomes."
 
-    # Feature importances derived from the project's XGBoost model results
     FEATURE_IMPORTANCE = {
         "Income (inctot)": 0.187,
         "Race: White Population %": 0.165,
@@ -177,25 +118,66 @@ class FeatureImportanceView(View):
         return pio.to_html(fig, full_html=False)
 
 
+class CorrelationView(View):
+    """Correlation between a socioeconomic factor and Republican vote share."""
+    title = "Factor vs Vote Share"
+    description = "Explore how a socioeconomic factor correlates with Republican vote share across counties."
+
+    INTERESTING_VARS = {
+        "inctot": "Total Income",
+        "avrg_age": "Average Age",
+        "mortamt1": "Mortgage Payment",
+        "ftotinc": "Family Income",
+        "GDP": "GDP per County",
+    }
+
+    def get_controls(self) -> list:
+        df = DataLoader.get_data()
+        available = {k: v for k, v in self.INTERESTING_VARS.items() if k in df.columns}
+        return [
+            ui.input_select(
+                id="corr_var",
+                label="Socioeconomic Factor",
+                choices=available,
+                selected=list(available.keys())[0]
+            )
+        ]
+
+    def render(self, corr_var=None, **kwargs) -> str:
+        df = DataLoader.get_data()
+        if corr_var is None or corr_var not in df.columns:
+            corr_var = "inctot"
+        df = df.dropna(subset=[corr_var, "republican_share"])
+        label = self.INTERESTING_VARS.get(corr_var, corr_var)
+        fig = px.scatter(
+            df, x=corr_var, y="republican_share",
+            opacity=0.3,
+            trendline="ols",
+            labels={corr_var: label, "republican_share": "Republican Vote Share (%)"},
+            title=f"{label} vs Republican Vote Share by County",
+            color_discrete_sequence=["#E63946"],
+            template="plotly_white"
+        )
+        return pio.to_html(fig, full_html=False)
+
+
 class TimeTrendView(View):
-    """
-    Shows how Republican and Democrat vote shares changed over election years.
-    """
-    title = "📈 Vote Share Over Time"
+    """Vote share trends over election years."""
+    title = "Vote Share Over Time"
     description = "How did Republican and Democrat vote shares shift across U.S. counties over election years?"
 
     def render(self, **kwargs) -> str:
         df = DataLoader.get_data()
-        df = df.dropna(subset=["year", "rep_votes_pct", "dem_votes_pct"])
-        trend = df.groupby("year")[["rep_votes_pct", "dem_votes_pct"]].mean().reset_index()
+        df = df.dropna(subset=["year", "republican_share", "democrat_share"])
+        trend = df.groupby("year")[["republican_share", "democrat_share"]].mean().reset_index()
         fig = go.Figure()
         fig.add_trace(go.Scatter(
-            x=trend["year"], y=trend["rep_votes_pct"],
+            x=trend["year"], y=trend["republican_share"],
             name="Republican", line=dict(color="#E63946", width=2.5),
             mode="lines+markers"
         ))
         fig.add_trace(go.Scatter(
-            x=trend["year"], y=trend["dem_votes_pct"],
+            x=trend["year"], y=trend["democrat_share"],
             name="Democrat", line=dict(color="#457B9D", width=2.5),
             mode="lines+markers"
         ))
@@ -212,7 +194,7 @@ class TimeTrendView(View):
 class ElectionProject:
     """
     Manages all views for the US County Election Outcomes project.
-    Adding a new view = instantiate and append to self.views.
+    To add a new visualization: create a new View subclass and append it.
     """
 
     def __init__(self):
@@ -229,20 +211,17 @@ class ElectionProject:
             TimeTrendView(),
         ]
 
-    def get_view_titles(self) -> list[str]:
-        return [v.title for v in self.views]
 
-    def get_view(self, title: str) -> View:
-        for v in self.views:
-            if v.title == title:
-                return v
-        return self.views[0]
+class PlaceholderProject:
+    """Template for future projects."""
+    def __init__(self, title, description):
+        self.title = title
+        self.description = description
+        self.views = []
 
 
 class Portfolio:
-    """
-    Manages all projects. Add new projects here as new classes.
-    """
+    """Manages all projects. Add new projects here."""
 
     def __init__(self):
         self._projects = []
@@ -263,12 +242,13 @@ class Portfolio:
 # ── Populate ───────────────────────────────────────────────
 
 portfolio = Portfolio()
-portfolio.add_project(ElectionProject())
+election = ElectionProject()
+portfolio.add_project(election)
+portfolio.add_project(PlaceholderProject("Project 2", "Coming soon."))
+portfolio.add_project(PlaceholderProject("Project 3", "Coming soon."))
 
 
 # ── UI ─────────────────────────────────────────────────────
-
-project = portfolio.get_project("US County Election Outcomes")
 
 app_ui = ui.page_fluid(
     ui.tags.style("""
@@ -276,32 +256,27 @@ app_ui = ui.page_fluid(
         .project-header { padding: 1.5rem 0 0.5rem 0; }
         .project-title { font-size: 1.4rem; font-weight: 600; margin: 0; }
         .project-desc { color: #666; font-size: 0.9rem; margin-top: 0.3rem; }
-        .view-desc { color: #555; font-size: 0.88rem; margin-bottom: 1rem; font-style: italic; }
+        .view-block { margin-bottom: 3rem; }
+        .view-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .view-desc { color: #555; font-size: 0.88rem; margin-bottom: 0.8rem; font-style: italic; }
+        .controls-row { margin-bottom: 1rem; }
+        .project-select { margin-bottom: 1.5rem; }
     """),
     ui.div(
-        ui.h2(project.title, class_="project-title"),
-        ui.p(project.description, class_="project-desc"),
+        ui.h2("My Data Science Projects", class_="project-title"),
         class_="project-header"
     ),
     ui.hr(),
-    ui.layout_sidebar(
-        ui.sidebar(
-            ui.h5("Select View"),
-            ui.input_select(
-                id="view_select",
-                label=None,
-                choices=project.get_view_titles(),
-                selected=project.get_view_titles()[0]
-            ),
-            ui.hr(),
-            ui.output_ui("dynamic_controls"),
-            width=250
+    ui.div(
+        ui.input_select(
+            id="project_select",
+            label="Select Project",
+            choices=portfolio.get_titles(),
+            selected=portfolio.get_titles()[0]
         ),
-        ui.div(
-            ui.output_ui("view_description"),
-            ui.output_ui("main_plot")
-        )
-    )
+        class_="project-select"
+    ),
+    ui.output_ui("project_content")
 )
 
 
@@ -310,26 +285,52 @@ app_ui = ui.page_fluid(
 def server(input, output, session):
 
     @reactive.calc
-    def current_view() -> View:
-        return project.get_view(input.view_select())
+    def current_project():
+        return portfolio.get_project(input.project_select())
 
     @output
     @render.ui
-    def dynamic_controls():
-        v = current_view()
-        controls = v.get_controls()
-        return ui.TagList(*controls)
+    def project_content():
+        p = current_project()
 
-    @output
-    @render.ui
-    def view_description():
-        v = current_view()
-        return ui.p(v.description, class_="view-desc")
+        if not p.views:
+            return ui.div(
+                ui.h3(p.title),
+                ui.p(p.description),
+                ui.p("🚧 Coming soon — check back later!", style="color: #888;")
+            )
 
-    @output
+        blocks = [
+            ui.div(
+                ui.p(p.description, class_="project-desc"),
+                ui.hr()
+            )
+        ]
+
+        for view in p.views:
+            controls = view.get_controls()
+            block = ui.div(
+                ui.h4(view.title, class_="view-title"),
+                ui.p(view.description, class_="view-desc"),
+                ui.div(*controls, class_="controls-row") if controls else ui.div(),
+                ui.output_ui(f"plot_{view.title.replace(' ', '_')}"),
+                class_="view-block"
+            )
+            blocks.append(block)
+
+        return ui.div(*blocks)
+
+    # Render each view's plot
+    for _view in election.views:
+        (lambda view: _make_renderer(view, output, input))(\_view)
+
+
+def _make_renderer(view, output, input):
+    plot_id = f"plot_{view.title.replace(' ', '_')}"
+
+    @output(id=plot_id)
     @render.ui
-    def main_plot():
-        v = current_view()
+    def _plot():
         kwargs = {}
         try:
             kwargs["overview_year"] = input.overview_year()
@@ -339,8 +340,7 @@ def server(input, output, session):
             kwargs["corr_var"] = input.corr_var()
         except Exception:
             pass
-        html = v.render(**kwargs)
-        return ui.HTML(html)
+        return ui.HTML(view.render(**kwargs))
 
 
 app = App(app_ui, server)

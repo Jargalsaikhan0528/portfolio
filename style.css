@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+/* Force beige background everywhere */
+body, .quarto-container, #quarto-content, .page-layout-article {
+  background-color: #f5f0e8 !important;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f5f0e8;
@@ -15,9 +20,9 @@ body {
 }
 
 /* ── Navigation ── */
-.navbar {
+.navbar, nav.navbar {
   background-color: #f5f0e8 !important;
-  border-bottom: 1px solid #e0d8c8;
+  border-bottom: 1px solid #e0d8c8 !important;
   padding: 1rem 2rem;
 }
 
@@ -28,7 +33,7 @@ body {
 }
 
 .navbar .nav-link {
-  color: #888 !important;
+  color: #1a1a1a !important;
   font-size: 0.9rem;
   font-weight: 400;
   margin: 0 0.3rem;
@@ -36,7 +41,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: #1a1a1a !important;
+  color: #555 !important;
 }
 
 /* ── Main content area ── */
@@ -143,4 +148,13 @@ h1.title {
   font-weight: 600;
   margin-bottom: 2rem;
   color: #1a1a1a;
+}
+
+/* ── Shiny Container ── */
+.shiny-container {
+  margin-top: 1.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #e0d8c8;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }

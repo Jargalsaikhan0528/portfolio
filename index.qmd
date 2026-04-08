@@ -3,16 +3,12 @@ title: ""
 ---
 
 ::: {.intro}
-I'm Jargalsaikhan, a Data Science and Society student at Central European University in Vienna.
 
-I work with data to uncover patterns, build models, and communicate findings clearly.
-
-I'm interested in the intersection of social science and machine learning.
+I'm Jargalsaikhan Gansuld, a Data Science and Economics student at Central European University in Vienna. I have a strong passion for data science, economics, and finance, and I'm eager to apply my skills in these fields. I have experience in data analysis, machine learning, and statistical modeling, and I'm always looking for new opportunities to learn and grow as a data scientist.
 :::
 
 ::: {.section-tabs}
-[Projects](#projects){.active}
-[About](about.qmd)
+[Projects](#projects){.active} &nbsp;&nbsp;&nbsp; [About](about.qmd)
 :::
 
 ### Projects {#projects}
@@ -26,7 +22,7 @@ I'm interested in the intersection of social science and machine learning.
 Analyzed how socioeconomic factors like GDP, education, and race influence U.S. election outcomes at the county level. Built predictive models using XGBoost and logistic regression.
 :::
 ::: {.project-link}
-[Open App ↗](projects.qmd)
+[Explore more ↗](https://019d6ceb-70a7-6a50-5dfc-d4adb3436442.share.connect.posit.cloud){target="_blank"}
 :::
 :::
 

@@ -16,17 +16,29 @@ import plotly.io as pio
 # ── OOP Layer ──────────────────────────────────────────────
 
 class DataLoader:
-    """Loads and caches the dataset. Single responsibility: data access."""
+    """Loads, merges, and caches the dataset."""
     _data = None
 
     @classmethod
     def get_data(cls) -> pd.DataFrame:
         if cls._data is None:
-            url = (
+            base_url = (
                 "https://raw.githubusercontent.com/Jargalsaikhan0528/"
-                "us-county-election-outcomes/main/county_census_and_election_result.csv"
+                "us-county-election-outcomes/main/"
             )
-            cls._data = pd.read_csv(url)
+            df = pd.read_csv(base_url + "county_census_and_election_result.csv")
+            gdp = pd.read_csv(base_url + "GDP%20by%20County.csv")
+
+            # Merge with GDP
+            gdp = gdp.rename(columns={"Year": "year", "County FIPS": "county_fips", "GDP (Chained $)": "GDP"})
+            df = df.merge(gdp[["year", "county_fips", "GDP"]], on=["year", "county_fips"], how="left")
+
+            # Compute vote shares
+            df["total_votes"] = df["democrat"] + df["republican"]
+            df["republican_share"] = (df["republican"] / df["total_votes"]) * 100
+            df["democrat_share"] = (df["democrat"] / df["total_votes"]) * 100
+
+            cls._data = df
         return cls._data
 
 
@@ -320,27 +332,25 @@ def server(input, output, session):
 
         return ui.div(*blocks)
 
-    # Render each view's plot
-    for _view in election.views:
-        (lambda view: _make_renderer(view, output, input))(_view)
+    def _make_renderer(view):
+        plot_id = f"plot_{view.title.replace(' ', '_')}"
 
+        @output(id=plot_id)
+        @render.ui
+        def _plot():
+            kwargs = {}
+            try:
+                kwargs["overview_year"] = input.overview_year()
+            except Exception:
+                pass
+            try:
+                kwargs["corr_var"] = input.corr_var()
+            except Exception:
+                pass
+            return ui.HTML(view.render(**kwargs))
 
-def _make_renderer(view, output, input):
-    plot_id = f"plot_{view.title.replace(' ', '_')}"
-
-    @output(id=plot_id)
-    @render.ui
-    def _plot():
-        kwargs = {}
-        try:
-            kwargs["overview_year"] = input.overview_year()
-        except Exception:
-            pass
-        try:
-            kwargs["corr_var"] = input.corr_var()
-        except Exception:
-            pass
-        return ui.HTML(view.render(**kwargs))
+    for view in election.views:
+        _make_renderer(view)
 
 
 app = App(app_ui, server)
